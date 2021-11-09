@@ -1,0 +1,66 @@
+<div class="container my-3">
+    <h1>{{detailClient.nomeContatto}} {{detailClient.cognomeContatto}}</h1>
+    <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-text">Ragione Sociale</h4>
+          <p class="card-text">{{detailClient.ragioneSociale}}</p>
+          <h4 class="card-text">Partita Iva</h4>
+          <p class="card-text">{{detailClient.partitaIva}}</p>
+          <h4 class="card-text">Tipo Cliente</h4>
+          <p class="card-text">{{detailClient.tipoCliente}}</p>
+          <h4 class="card-text">Email</h4>
+          <p class="card-text">{{detailClient.email}}</p>
+          <h4 class="card-text">Pec</h4>
+          <p class="card-text">{{detailClient.pec}}</p>
+          <h4 class="card-text">Telefono</h4>
+          <p class="card-text">{{detailClient.telefono}}</p>
+          <h4 class="card-text">Telefono Contatto</h4>
+          <p class="card-text">{{detailClient.telefonoContatto}}</p>
+          <h4 class="card-text">Email Contatto</h4>
+          <p class="card-text">{{detailClient.emailContatto}}</p>
+          <h4 class="card-text">Sede Operativa</h4>
+          <hr>
+          <h6 class="card-text">Iva</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.via}}</p>
+          <h6 class="card-text">Civico</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.civico}}</p>
+          <h6 class="card-text">Cap</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.cap}}</p>
+          <h6 class="card-text">Località</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.localita}}</p>
+          <hr>
+          <h5 class="card-text">Comune</h5>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.comune.nome}}</p>
+          <hr>
+          <h6 class="card-text">Provincia</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.comune.provincia.nome}}</p>
+          <h6 class="card-text">Sigla</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeOperativa.comune.provincia.sigla}}</p>
+          <hr>
+          <h4 class="card-text">Indirizzo Legale</h4>
+          <h6 class="card-text">Via</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.via}}</p>
+          <h6 class="card-text">Civico</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.civico}}</p>
+          <h6 class="card-text">Cap</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.cap}}</p>
+          <h6 class="card-text">Località</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.localita}}</p>
+          <hr>
+          <h5 class="card-text">Comune Indirizzo Legale</h5>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.comune.nome}}</p>
+          <hr>
+          <h6 class="card-text">Provincia</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.comune.provincia.nome}}</p>
+          <h6 class="card-text">Sigla</h6>
+          <p class="card-text">{{detailClient.indirizzoSedeLegale.comune.provincia.sigla}}</p>
+          <hr>
+          <h4 class="card-text">Data Inserimento</h4>
+          <p class="card-text">{{detailClient.dataInserimento}}</p>
+          <h4 class="card-text">Data Ultimo Contatto</h4>
+          <p class="card-text">{{detailClient.dataUltimoContatto}}</p>
+
+        </div>
+        <div class="card-footer text-muted"></div>
+      </div>
+</div>
