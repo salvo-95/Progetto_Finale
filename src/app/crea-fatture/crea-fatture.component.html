@@ -1,0 +1,46 @@
+<div class="container my-3">
+    <h1>{{title}}</h1>
+    <div class="card text-center">
+        <div class="m-3">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="newFatture.data" class="form-control" name="ragioneSociale"
+                    placeholder="Ragione Sociale...">
+            </div>
+            <div class="form-group">
+                <input type="number" [(ngModel)]="newFatture.numero" class="form-control" name="partitaIva"
+                    placeholder="Partita Iva...">
+            </div>
+            <div class="form-group">
+                <input type="number" [(ngModel)]="newFatture.anno" class="form-control" name="partitaIva"
+                    placeholder="Partita Iva...">
+            </div>
+            <div class="form-group">
+                <input type="number" [(ngModel)]="newFatture.importo" class="form-control" name="partitaIva"
+                    placeholder="Partita Iva...">
+            </div>
+            <div class="form-group">
+
+                <select [(ngModel)]="newFatture.stato" name="tipoFatture" class="form-select">
+                    <option selected>Seleziona Tipo Cliente</option>
+                    <option [ngValue]="item" *ngFor="let item of tipiFatture">{{item.nome}}</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+
+                <select [(ngModel)]="newFatture.cliente.id" name="tipoCliente" class="form-select">
+                    <option selected>Seleziona Cliente</option>
+                    <option [ngValue]="item.id" *ngFor="let item of clienti.content">{{item.ragioneSociale}}</option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control" (click)="saveFattura()">Salva
+                    Fattura</button>
+            </div>
+        </div>
+    </div>
+</div>

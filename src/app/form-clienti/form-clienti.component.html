@@ -9,7 +9,10 @@
                 <input type="text" [(ngModel)]="editClient.partitaIva" class="form-control" name="partitaIva" placeholder="Partita Iva...">
             </div>
             <div class="form-group">
-                <input type="text" [(ngModel)]="editClient.tipoCliente" class="form-control" name="tipoCliente" placeholder="Tipo Cliente...">
+                <select [(ngModel)]="editClient.tipoCliente" name="tipoCliente" class="form-select">
+                    <option selected>Seleziona Tipo Cliente</option>
+                    <option *ngFor="let item of tipicliente">{{item}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="email" [(ngModel)]="editClient.email" class="form-control" name="email" placeholder="Email...">
@@ -32,38 +35,57 @@
             <div class="form-group">
                 <input type="text" [(ngModel)]="editClient.emailContatto" class="form-control" name="emailContatto" placeholder="Email Contatto...">
             </div>
+            <h3>Sede Operativa</h3>
             <div class="form-group">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.via" class="form-control" name="indirizzoSedeOperativa.via" placeholder="Indirizzo Sede Operativa...">
+                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.via" class="form-control" name="indirizzoSedeOperativa.via" placeholder="Via Sede Operativa...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.civico" class="form-control" name="indirizzoSedeOperativa.civico" placeholder="Civico...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.cap" class="form-control" name="indirizzoSedeOperativa.cap" placeholder="Cap...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.localita" class="form-control" name="indirizzoSedeOperativa.localita" placeholder="Località...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.comune.id" class="form-control" name="indirizzoSedeOperativa.comune.id" placeholder="ID comune...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.comune.nome" class="form-control" name="indirizzoSedeOperativa.comune.id" placeholder="Nome comune...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.comune.provincia.id" class="form-control" name="indirizzoSedeOperativa.comune.provincia.id" placeholder="ID Provincia...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.comune.provincia.nome" class="form-control" name="indirizzoSedeOperativa.comune.provincia.nome" placeholder="Nome Provincia...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeOperativa.comune.provincia.sigla" class="form-control" name="indirizzoSedeOperativa.comune.provincia.sigla" placeholder="Sigla...">
+                <div class="form-group"></div>
+                <select name="indirizzoSedeOperativaProvincia" class="form-select">
+                    <option selected>Seleziona Provincia</option>
+                    <option *ngFor="let item of province">{{item.nome}}</option>
+                </select>
+                </div>
+                <!-- <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink]="['inserimentoprovcom']">Inserisci Nuovo Comune</button> -->
+                <div class="form-group">
+                <select [(ngModel)]="editClient.indirizzoSedeOperativa.comune" [ngModelOptions]="{standalone: true}" class="form-select" nome="indirizzoSedeOperativaComuneNome">
+                    <option selected>Seleziona Comune</option>
+                    <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
+                     <!-- <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink]="['inserimentoprovcom']">Inserisci Nuova Provincia</button> -->
+                </select>
+
             </div>
+            <h3>Sede Legale</h3>
             <div class="form-group">
+                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.via" class="form-control" name="indirizzoSedeLegale.via" placeholder="Via Sede Legale...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.civico" class="form-control" name="indirizzoSedeLegale.civico" placeholder="Civico...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.cap" class="form-control" name="indirizzoSedeLegale.cap" placeholder="Cap...">
                 <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.localita" class="form-control" name="indirizzoSedeLegale.localita" placeholder="Località...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.comune.id" class="form-control" name="indirizzoSedeLegale.comune.id" placeholder="ID comune...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.comune.nome" class="form-control" name="indirizzoSedeLegale.comune.id" placeholder="Nome comune...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.comune.provincia.id" class="form-control" name="indirizzoSedeLegale.comune.provincia.id" placeholder="ID Provincia...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.comune.provincia.nome" class="form-control" name="indirizzoSedeLegale.comune.provincia.nome" placeholder="Nome Provincia...">
-                <input type="text" [(ngModel)]="editClient.indirizzoSedeLegale.comune.provincia.sigla" class="form-control" name="indirizzoSedeLegale.comune.provincia.sigla" placeholder="Sigla...">
+                <div class="form-group"></div>
+                <select name="indirizzoSedeLegaleProvincia" class="form-select">
+                    <option selected>Seleziona Provincia</option>
+                    <option *ngFor="let item of province">{{item.nome}}</option>
+                </select>
+            
+                <!-- <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink]="['inserimentoprovcom']">Inserisci Nuovo Comune</button> -->
+                <div class="form-group"></div>
+                <select [(ngModel)]="editClient.indirizzoSedeLegale.comune" [ngModelOptions]="{standalone: true}" class="form-select" nome="indirizzoSedeLegaleComuneNome">
+                    <option selected>Seleziona Comune</option>
+                    <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
+                     <!-- <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink]="['inserimentoprovcom']">Inserisci Nuova Provincia</button> -->
+                </select>
+
+                
             </div>
             <div class="form-group">
                 <input type="text" [(ngModel)]="editClient.dataInserimento" class="form-control" name="dataInserimento" placeholder="Data Inserimento...">
             </div>
             <div class="form-group">
-                <input type="text" [(ngModel)]="editClient.emailContatto" class="form-control" name="emailContatto" placeholder="Email Contatto...">
-            </div>
-            <div class="form-group">
                 <input type="text" [(ngModel)]="editClient.dataUltimoContatto" class="form-control" name="dataUltimoContatto" placeholder="Data Ultimo Contatto...">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success form-control" (click)="saveClient()">Salva Cliente</button>
+                <button type="submit" class="btn btn-success form-control" (click)="saveClient()">Salva Cliente<i class="bi bi-send-fill m-3"></i></button>
               </div>
           </form>
       </div>

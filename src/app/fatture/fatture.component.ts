@@ -1,5 +1,8 @@
+import { FattureService } from './../services/fatture.service';
 import { Component, OnInit } from '@angular/core';
-import { FattureService } from '../services/fatture.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Fatture } from '../interfaces/fatture';
+import { NewFattura } from '../interfaces/new-fattura';
 
 @Component({
   selector: 'app-fatture',
@@ -8,10 +11,32 @@ import { FattureService } from '../services/fatture.service';
 })
 export class FattureComponent implements OnInit {
 
-  constructor(private fattureService: FattureService) { }
+   detailFatture!: Fatture[];
+ 
+
+  constructor(private fattureService: FattureService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.fattureService.getAllFatture().subscribe(response => console.log(response))
+    this.route.params.subscribe(element => {
+      if (element.id) {
+        this.fattureService.getFatture(element.id).subscribe(response => this.detailFatture = response.content);
+      }
+    });
+  }
+  deleteFattura(item: Fatture){
+    this.fattureService.removeFatture(item).subscribe(response => {
+      this.fattureService.getAllFatture().subscribe(response => this.detailFatture = response.content);
+    })
   }
 
-}
+  dettaglioFatture(item: Fatture) {
+    this.router.navigate(['dettagliofatture', item.id])
+  }
+
+  selectFatture(item: Fatture){
+    this.router.navigate(['fatture', item.id, 'edit'])
+  }
+
+  }

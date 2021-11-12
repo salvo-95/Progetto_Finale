@@ -11,7 +11,7 @@ import { Content } from '../interfaces/content';
 })
 export class ClientiComponent implements OnInit {
 
-  clienti!: Content
+  clienti!: Content;
 
   constructor(private clientiService: ClientiService, private router: Router) { }
 
@@ -30,7 +30,10 @@ export class ClientiComponent implements OnInit {
   }
 
   selectClient(item: Clienti){
-    this.router.navigate(['client', item.id, 'edit'])
+    this.router.navigate(['clienti', item.id, 'edit'])
+  }
+  fattureClient(item: Clienti){
+    this.router.navigate(['clienti', item.id, 'fatture'])
   }
 
 }

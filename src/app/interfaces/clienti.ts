@@ -11,6 +11,7 @@ export interface Clienti {
     telefonoContatto: string,
     emailContatto: string,
     indirizzoSedeOperativa: {
+        id?: number,
         via: string,
         civico: string,
         cap: string,
@@ -26,6 +27,7 @@ export interface Clienti {
         }
     },
     indirizzoSedeLegale: {
+        id?: number,
         via: string,
         civico: string,
         cap: string,
@@ -41,5 +43,6 @@ export interface Clienti {
         }
     },
     dataInserimento: string,
-    dataUltimoContatto: string
+    dataUltimoContatto: string,
+    fatturatoAnnuale?: undefined
 }

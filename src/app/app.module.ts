@@ -13,6 +13,9 @@ import { ClientiComponent } from './clienti/clienti.component';
 import { FattureComponent } from './fatture/fatture.component';
 import { FormClientiComponent } from './form-clienti/form-clienti.component';
 import { DetailClientiComponent } from './detail-clienti/detail-clienti.component';
+import { LoginComponent } from './login/login.component';
+import { DetailFattureComponent } from './detail-fatture/detail-fatture.component';
+import { CreaFattureComponent } from './crea-fatture/crea-fatture.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { DetailClientiComponent } from './detail-clienti/detail-clienti.componen
     ClientiComponent,
     FattureComponent,
     FormClientiComponent,
-    DetailClientiComponent
+    DetailClientiComponent,
+    LoginComponent,
+    DetailFattureComponent,
+    CreaFattureComponent
   ],
   imports: [
     BrowserModule,

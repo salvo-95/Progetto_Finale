@@ -39,7 +39,7 @@ export class ClientiService {
   }
 
   createClient(clienti: Clienti){
-    return this.http.post<Clienti>(this.urlAPI2, clienti);
+    return this.http.post<Clienti>(environment.urlAPI + 'api/clienti', clienti);
   }
 
   removeClienti(clienti: Clienti){

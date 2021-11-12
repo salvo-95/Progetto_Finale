@@ -1,1 +1,53 @@
-<p>fatture works!</p>
+<div class="container my-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Data</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Anno</th>
+        <th scope="col">Importo</th>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of detailFatture; index as i">
+        <th>
+          <h5 scope="row">N. Fattura &nbsp;</h5>
+          <p>{{ i + 1 }}</p>
+        </th>
+        <td>
+          <h5>Data </h5>
+          <p> {{item.data}}</p>
+        </td>
+        <td>
+          <h5>Numero </h5>
+          <p>{{item.numero}}</p>
+        </td>
+        <td>
+          <h5>Anno </h5>
+          <p>{{item.anno}}</p>
+        </td>
+        <td>
+          <h5>Importo </h5>
+          <p>{{item.importo}}</p>
+        </td>
+        <td>
+          <h5>Stato </h5>
+          <p>{{item.stato.nome}}</p>
+        </td>
+        <hr>
+        <td>
+          <button type="button" class="btn btn-outline-danger btn-sm mx-1" (click)="deleteFattura(item)"><i
+              class="bi bi-trash"></i></button>
+          <button type="button" class="btn btn-outline-success btn-sm mx-1" (click)="selectFatture(item)"><i
+              class="bi bi-pencil-square"></i></button>
+          <button type="button" class="btn btn-outline-primary btn-sm mx-1" (click)="dettaglioFatture(item)"><i
+              class="bi bi-search"></i></button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
