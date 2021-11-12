@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     if(this.userLogin.username == 'admin' && this.userLogin.password == 'admin') {
       console.log('login ok');
       alert('Benvenuto :-)');
-      //this.routeGuardService.setLogin();
+      this.routeGuardService.setLogin();
       this.router.navigate(['/clienti/list']);
     } else {
       console.log('email/password errate!!!');

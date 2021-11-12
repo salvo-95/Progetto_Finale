@@ -12,11 +12,13 @@ import { CreaFattureComponent } from './crea-fatture/crea-fatture.component';
 const routes: Routes = [
   {
     path: 'clienti/list',
-    component: ClientiComponent
+    component: ClientiComponent,
+    canActivate: [RoutGuardService]
   },
   {
     path: 'clienti/new',
-    component: FormClientiComponent
+    component: FormClientiComponent,
+    canActivate: [RoutGuardService]
   },
   {
     path: 'clienti/:id/edit',
@@ -24,7 +26,8 @@ const routes: Routes = [
   },
   { 
     path: 'dettagliocliente/:id',
-    component: DetailClientiComponent
+    component: DetailClientiComponent,
+    canActivate: [RoutGuardService]
   },
   {
     path: '',
@@ -45,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: 'fatture/new',
-    component: CreaFattureComponent
+    component: CreaFattureComponent,
+    canActivate: [RoutGuardService]
   },
   {
     path: 'fatture/:id/edit',
