@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     password : ""
   }
 
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -26,10 +27,12 @@ export class LoginComponent implements OnInit {
   signin(){
     if(this.userLogin.username == 'admin' && this.userLogin.password == 'admin') {
       console.log('login ok');
+      alert('Benvenuto :-)');
       //this.routeGuardService.setLogin();
       this.router.navigate(['/clienti/list']);
     } else {
       console.log('email/password errate!!!');
+      alert('Email e/o password errate!')
       this.loginEmail = '';
       this.loginPassword = '';
     }

@@ -15,7 +15,8 @@ import { FattureService } from '../services/fatture.service';
   styleUrls: ['./crea-fatture.component.css']
 })
 export class CreaFattureComponent implements OnInit {
-  clienti!: Content;
+  clienti!: ContentFatture;
+  
 
   title: string = "";
 
@@ -32,7 +33,7 @@ export class CreaFattureComponent implements OnInit {
       id: 1
     }
   }
-
+  userEdit: boolean = true;
   tipiFatture: StatoFattura[] = [];
 
   constructor(private creaFatturaService: CreaFattureService, private router: Router,
@@ -40,37 +41,40 @@ export class CreaFattureComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(element => {
-      if(!element.id){
+      if (!element.id) {
         this.title = "Nuova Fattura";
-        
-      }else {
+
+      } else {
         this.title = "Edit";
-        this.fattureService.getFatture(element.id).subscribe(response => this.newFatture = response.content)
+        this.fattureService.getFatture(element.id).subscribe(response => {
+          this.newFatture = response.content;
+          this.userEdit = false
+        })
       }
     })
     this.getAllStato();
-    this.clientiService.getAllClienti().subscribe(response=> this.clienti = response);
+    this.clientiService.getAllClienti().subscribe(response => this.clienti = response);
   }
 
-  getAllStato(){
+  getAllStato() {
     this.creaFatturaService.getAllStato().subscribe(response => this.tipiFatture = response.content);
   }
 
 
-  saveFattura(){
+  saveFattura() {
     this.route.params.subscribe(element => {
-      if(!element.id){
-        this.fattureService.createFatture(this.newFatture).subscribe(response =>{
+      if (!element.id) {
+        this.fattureService.createFatture(this.newFatture).subscribe(response => {
           this.router.navigate(['clienti/list'])
         })
-      }else {
+      } else {
         this.fattureService.updateFattura(this.newFatture).subscribe(response => {
           console.log(response);
           this.router.navigate(['clienti/list'])
         })
       }
     })
-   }
-
-
   }
+
+
+}

@@ -11,17 +11,21 @@ import { NewFattura } from '../interfaces/new-fattura';
 })
 export class FattureComponent implements OnInit {
 
+
    detailFatture!: Fatture[];
  
 
   constructor(private fattureService: FattureService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+     //private parametro: string = ""
+     ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(element => {
       if (element.id) {
         this.fattureService.getFatture(element.id).subscribe(response => this.detailFatture = response.content);
+        //this.parametro = element.id;
       }
     });
   }
